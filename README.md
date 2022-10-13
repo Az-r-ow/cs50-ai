@@ -1,4 +1,6 @@
 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![Demandez moi n'importe quoi !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](https://GitHub.com/Naereen/ama.fr)
 # CS-50 AI
 
  :wave: In this repository, you will be following my progress through the course. I got the idea of doing it a few days ago so this is why there are some folders that were already created.
@@ -35,4 +37,23 @@ For the `iterative_pagerank`, I use a while loop that keeps running until the co
 $$PR_{(p)}=\frac{1 - d}{N}+ d\sum_{i}^{}\frac{PR_{(i)}}{NumLinks_{(i)}}$$
 `d` Being the damping factor.
 `NumLinks(i)` Being the number of links on the current page.
-`N` Being the number of pages in the corpus. 
+`N` Being the number of pages in the corpus.
+
+### Heredity : [:book:](https://cs50.harvard.edu/ai/2020/projects/2/heredity/)
+I found this assignment to be one of the easiest, it was pretty straightforward and I passed all the tests in the first go.
+Going over each person individually in the people list, I set a few conditions to be able to calculate the probabilities checking if a person, is a `parent` or `child` .
+Then the following dictionary helps me in getting the relative probabilities of passing the genes by the number of genes :
+```
+prob_parent_give_gene = {
+                0: 0.01,
+                1: 0.49,
+                2: 0.99
+            }
+ ```
+ Next in the `if else if` chain, I calculate the the person's probabilities of having the gene based on the number of genes in the parents. After it's calculated, I add them to the people probabilities to finally return the **joint probability** being the product of all the elements in `people_probabilities`.
+## Week 3 : Optimisation
+### Crossword : [:book:](https://cs50.harvard.edu/ai/2020/projects/3/crossword/)
+This was a long one but a fun one to make. The feeling I got after seeing the table displaying the right words is indescribable.
+I was a given a list of words in `.txt` files and structures for the tables that were parsed by the `crossword.py` script given, turning them into a `Crossword` and a `Variable` classes. Which are used to be able to solve the crossword.
+It consisted of implementing the `ac3` algorithm and basically going over the given word possibilities singling out the ones that were not consistent with the contraints and keeping the ones that were.
+To speed things up I implement the **least constraining value heuristic** (which was suggested but not required). Using this heuristic, I ordered the values in the domain of `var` (being the variable that we're currently on) starting with the one rules out the fewest values amongst the neighbours of `var`.
