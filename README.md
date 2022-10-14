@@ -1,4 +1,5 @@
 
+
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![Demandez moi n'importe quoi !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](https://GitHub.com/Naereen/ama.fr)
 # CS-50 AI
@@ -8,7 +9,7 @@
 ## Week 0 : Search
 
 ###  Degrees : [:book:](https://cs50.harvard.edu/ai/2020/projects/0/degrees/)
-
+I was provided with two folders one containing a set of a large data sets and another for small data sets. The goal is to find the `shortest_path` from the `source`'s id to the `target`'s id. I go on to implement this by defining a `starting_node`, `visited` (empty list) , `queue` list with the `starting_node` as the first element and the `shortest_path` being an empty list. Then in the while loop, we first check the neighbours of the first node in the lights of finding a relation to the `target` . If nothing is found, the neighbours become nodes that aren't explored yet and they get added to the queue to be explored. Keeping track of the length of the shortest path to get to the target and the nodes that already been visited in `visited`.
 ### Tic-Tac-Toe : [:book:](https://cs50.harvard.edu/ai/2020/projects/0/tictactoe/)
 In this project, the Minimax algorithm used, goes over all the future actions possible calculating the `min_value` or the `max_value` based on the AI's position. The algorithm chooses the **highest** or **lowest** scores relatively.
 The higher (or lower) the score the more win outcomes possible derive from the move.
