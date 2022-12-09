@@ -100,7 +100,7 @@ def load_data(filename):
             e.append(float(row[9]))
 
             # - Month, an index from 0 (January) to 11 (December)
-            months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dev']
+            months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
             e.append(months.index(row[10]))
 
@@ -117,7 +117,7 @@ def load_data(filename):
             e.append(int(row[14]))
 
             # - VisitorType, an integer 0 (not returning) or 1 (returning)
-            e.append(1 if row[15].str.lower() == "returning_visitor" else 0)
+            e.append(1 if row[15].lower() == "returning_visitor" else 0)
 
             # - Weekend, an integer 0 (if false) or 1 (if true)
             e.append(0 if row[16] == "FALSE" else 1)
@@ -135,7 +135,9 @@ def train_model(evidence, labels):
     Given a list of evidence lists and a list of labels, return a
     fitted k-nearest neighbor model (k=1) trained on the data.
     """
-    raise NotImplementedError
+    neigh = KNeighborsClassifier(n_neighbors=1) # k = 1
+
+    return neigh.fit(evidence, labels)
 
 
 def evaluate(labels, predictions):
@@ -153,7 +155,25 @@ def evaluate(labels, predictions):
     representing the "true negative rate": the proportion of
     actual negative labels that were accurately identified.
     """
-    raise NotImplementedError
+    true_positive_count, true_negative_count = 0, 0
+    total_positives, total_negatives = 0, 0
+
+    for i in range(len(labels)):
+        if labels[i] == predictions[i] and labels[i] == 1:
+            true_positive_count += 1
+            total_positives += 1
+        elif labels[i] == predictions[i] and labels[i] == 0:
+            true_negative_count += 1
+            total_negatives += 1
+        elif labels[i] == 1:
+            total_positives += 1
+        elif labels[i] == 0:
+            total_negatives += 1
+
+    sensitivity = true_positive_count / total_positives
+    specificity = true_negative_count / total_negatives
+
+    return (sensitivity, specificity)
 
 
 if __name__ == "__main__":

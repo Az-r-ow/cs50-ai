@@ -58,3 +58,20 @@ This was a long one but a fun one to make. The feeling I got after seeing the ta
 I was a given a list of words in `.txt` files and structures for the tables that were parsed by the `crossword.py` script given, turning them into a `Crossword` and a `Variable` classes. Which are used to be able to solve the crossword.
 It consisted of implementing the `ac3` algorithm and basically going over the given word possibilities singling out the ones that were not consistent with the contraints and keeping the ones that were.
 To speed things up I implement the **least constraining value heuristic** (which was suggested but not required). Using this heuristic, I ordered the values in the domain of `var` (being the variable that we're currently on) starting with the one rules out the fewest values amongst the neighbours of `var`.
+
+## Week 4: Learning
+### Shopping : [:book:](https://cs50.harvard.edu/ai/2020/projects/4/shopping/)
+We are given a csv file that contains data about around 12000 users. With this data I should use the K neighbor classifier to be able to predict whether a user will make a purchase or not.
+
+In the `load_data` function, we read the csv file row by row, forming the evidence list and the label list.
+
+`train_model` : given the lists of evidence and labels that we formed in the previous function, we had to train the model with k = 1 and then return the trained model.
+
+
+In the last function (`evaluate`), the predictions that the model has made were given as well as their true labels. So going over the data given, I compared the labels to the predictions and added counters to keep track of :
+- The true positive labels that were identified (`true_positive_count`)
+- The true negative labels that were identified (`true_negative_count`)
+- The total number of positives (`total_positives`)
+- The total number of negatives (`total_negatives`)
+
+Then using these variables, I calculated the `sensitivity` and `specificity`.
