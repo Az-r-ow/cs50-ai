@@ -75,3 +75,6 @@ In the last function (`evaluate`), the predictions that the model has made were 
 - The total number of negatives (`total_negatives`)
 
 Then using these variables, I calculated the `sensitivity` and `specificity`.
+
+### Nim : [:book:](https://cs50.harvard.edu/ai/2020/projects/4/nim/)
+Two files were given, one that has the classes for which I have to implement the methods (`nim.py`). The other being the file that handles the gameplay (`play.py`).
