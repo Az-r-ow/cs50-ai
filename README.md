@@ -78,3 +78,12 @@ Then using these variables, I calculated the `sensitivity` and `specificity`.
 
 ### Nim : [:book:](https://cs50.harvard.edu/ai/2020/projects/4/nim/)
 Two files were given, one that has the classes for which I have to implement the methods (`nim.py`). The other being the file that handles the gameplay (`play.py`).
+
+The first function to implement is the `get_q_value` in the `NimAI` class. All this function does is check if there's a `q` value for the given 'state' and 'action' if not return 0.
+
+Using the formula :
+$$Q(s, a) \leftarrow Q(s, a) + \alpha \times (NVE - OVE)$$
+- `NVM` being the New Value Estimate
+- `OVE` being the Old Value Estimate
+
+The q value gets updated in the `update_q_value` function.
