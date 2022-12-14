@@ -79,7 +79,7 @@ Then using these variables, I calculated the `sensitivity` and `specificity`.
 ### Nim : [:book:](https://cs50.harvard.edu/ai/2020/projects/4/nim/)
 Two files were given, one that has the classes for which I have to implement the methods (`nim.py`). The other being the file that handles the gameplay (`play.py`).
 
-The first function to implement is the `get_q_value` in the `NimAI` class. All this function does is check if there's a `q` value for the given 'state' and 'action' if not return 0.
+The first function to implement is the `get_q_value` in the `NimAI` class. All this function does, is check if there's a `q` value for the given 'state' and 'action' if not return 0.
 
 Using the formula :
 $$Q(s, a) \leftarrow Q(s, a) + \alpha \times (NVE - OVE)$$
@@ -87,3 +87,16 @@ $$Q(s, a) \leftarrow Q(s, a) + \alpha \times (NVE - OVE)$$
 - `OVE` being the Old Value Estimate
 
 The q value gets updated in the `update_q_value` function.
+
+In the last function to implement (`choose_action`) :
+- In the case where epsilon is `True` :
+  - I set two choices either a random move or the best move in the goal of either exploring or exploiting.
+  - Based on the epsilon value as a weight for the `random.choices()` the AI takes the next action (either choses randomly from the list of actions or chooses based on the highest `q` value).
+
+- In the case where epsilon is `False` :
+  - I go over the possible actions in the current state. Checking if they have a `q` value or not (if they don't their `q` value will be considered 0).
+  - Comparing their values until it finds the one with the highest `q` value.
+  - Otherwise, it will just choose the last one on the list of actions.
+
+
+  Playing against the AI, it does take smart moves but with a little bit of cleverness it can be defeated.
