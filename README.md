@@ -17,7 +17,11 @@ The higher (or lower) the score the more win outcomes possible derive from the m
 ## Week 1 : Knowledge
 ### Knights : [:book:](https://cs50.harvard.edu/ai/2020/projects/1/knights/)
 
+Given a way to express logical sentences, I was asked to solve four puzzles given.
+
 ### Minesweeper : [:book:](https://cs50.harvard.edu/ai/2020/projects/1/minesweeper/)
+
+In this project, we had to write an AI agent that can gather knowledge about the minesweeper board and automatically select cells that are known to be safe.  
 
 ## Week 2 : Uncertainty
 ### PageRank : [:book:](https://cs50.harvard.edu/ai/2020/projects/2/pagerank/)
