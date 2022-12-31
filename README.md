@@ -104,3 +104,7 @@ In the last function to implement (`choose_action`) :
 
 
   Playing against the AI, it does take smart moves but with a little bit of cleverness it can be defeated.
+
+  ## Week 5 : Neural Networks
+  ### Traffic : [:book:](https://cs50.harvard.edu/ai/2020/projects/5/traffic/)
+  
