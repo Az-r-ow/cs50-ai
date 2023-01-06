@@ -3,3 +3,4 @@
 *.ttf
 __pycache__
 shopping.csv
+/traffic/gtsrb
