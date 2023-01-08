@@ -32,6 +32,8 @@ Epoch 10/10
 333/333 - 1s - loss: 3.4946 - accuracy: 0.0553 - 1s/epoch - 3ms/step
 ```
 
+For my second take, I increased the Max pooling pool size to `3 x 3`. And decreased the hidden layer's nodes to `64`.
+However the results has not improved the slightest, in the contrary, the accuracy decreased by `0.0051`.
 
 #### What did I try ?
 
