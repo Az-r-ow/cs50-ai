@@ -35,6 +35,45 @@ Epoch 10/10
 For my second take, I increased the Max pooling pool size to `3 x 3`. And decreased the hidden layer's nodes to `64`.
 However the results has not improved the slightest, in the contrary, the accuracy decreased by `0.0051`.
 
+For the third take, I decided to add another convolution step. The parameters for the initial one were :
+- `64` filters
+- `3 x 3 ` kernel size
+- `3 x 3` MaxPooling pool size
+
+The second convolution had :
+- `32` filters
+- `3 x 3` kernel size
+- `3 x 3` Pool size
+
+In addition, I added two extra hidden layers one of them with a dropout of `0.2`. And changed the previously added hidden layer's dropout to `0.2` as well.
+
+With these layers this is how our Neural Network performed :
+```
+Epoch 1/10
+500/500 [==============================] - 4s 8ms/step - loss: 3.4260 - accuracy: 0.1296
+Epoch 2/10
+500/500 [==============================] - 4s 8ms/step - loss: 2.2432 - accuracy: 0.3452
+Epoch 3/10
+500/500 [==============================] - 4s 8ms/step - loss: 1.8181 - accuracy: 0.4228
+Epoch 4/10
+500/500 [==============================] - 4s 8ms/step - loss: 1.5802 - accuracy: 0.4966
+Epoch 5/10
+500/500 [==============================] - 4s 8ms/step - loss: 1.3426 - accuracy: 0.5674
+Epoch 6/10
+500/500 [==============================] - 4s 8ms/step - loss: 1.1356 - accuracy: 0.6321
+Epoch 7/10
+500/500 [==============================] - 4s 8ms/step - loss: 0.9701 - accuracy: 0.6775
+Epoch 8/10
+500/500 [==============================] - 4s 8ms/step - loss: 0.8603 - accuracy: 0.7050
+Epoch 9/10
+500/500 [==============================] - 4s 8ms/step - loss: 0.8046 - accuracy: 0.7329
+Epoch 10/10
+500/500 [==============================] - 4s 8ms/step - loss: 0.7112 - accuracy: 0.7640
+333/333 - 1s - loss: 0.5386 - accuracy: 0.8224 - 1s/epoch - 3ms/step
+```
+
+A great improvement from my initial take. 
+
 #### What did I try ?
 
 #### What worked well ?

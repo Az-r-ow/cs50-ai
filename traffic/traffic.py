@@ -87,16 +87,30 @@ def get_model():
     model.add(tf.keras.layers.Conv2D(64, kernel_size=(3, 3), activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)))
 
     # Pooling
+    model.add(tf.keras.layers.MaxPooling2D((2, 2)))
+
+    # Convolution 2
+    model.add(tf.keras.layers.Conv2D(34, kernel_size=(3, 3), activation='relu'))
+
+    # Pooling 2
     model.add(tf.keras.layers.MaxPooling2D((3, 3)))
 
     # Flatten
     model.add(tf.keras.layers.Flatten())
 
+    model.add(tf.keras.layers.Dense(128, activation="relu"))
+    model.add(tf.keras.layers.Dropout(0.2))
+
     # Add a hidden layer and dropout
     model.add(tf.keras.layers.Dense(64, activation="relu"))
-    model.add(tf.keras.layers.Dropout(0.5))
+    model.add(tf.keras.layers.Dropout(0.2))
 
-    # Add an output layer with outoput units for all the categories
+    model.add(tf.keras.layers.Dense(34, activation="relu"))
+    model.add(tf.keras.layers.Dropout(0.2))
+
+    model.add(tf.keras.layers.Dense(16, activation="relu"))
+
+    # Add an output layer with output units for all the categories
     model.add(tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax"))
 
     model.compile(
