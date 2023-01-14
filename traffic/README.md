@@ -72,12 +72,32 @@ Epoch 10/10
 333/333 - 1s - loss: 0.5386 - accuracy: 0.8224 - 1s/epoch - 3ms/step
 ```
 
-A great improvement from my initial take. 
+A great improvement from my initial take. However, more is needed to achive the 95% accuracy and higher.
 
-#### What did I try ?
+Reading the following [article](https://pyimagesearch.com/2018/12/31/keras-conv2d-and-convolutional-layers/) on the importance of the `keras.layers.Conv2D` parameters. The author recommended to start with a lower number of layers for the first Convolution and then going up if needed. So instead of starting with `64` layers and then `34` I started with `32` and then went for `64`. And also I rectified my second max pooling to a `(2 x 2)` pool size. These were the results after these changes :
 
-#### What worked well ?
+```
+Epoch 1/10
+500/500 [==============================] - 4s 7ms/step - loss: 3.5033 - accuracy: 0.1351   
+Epoch 2/10
+500/500 [==============================] - 4s 7ms/step - loss: 2.0187 - accuracy: 0.3967
+Epoch 3/10
+500/500 [==============================] - 4s 7ms/step - loss: 1.4337 - accuracy: 0.5243
+Epoch 4/10
+500/500 [==============================] - 4s 7ms/step - loss: 1.1122 - accuracy: 0.6249
+Epoch 5/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.8552 - accuracy: 0.7082
+Epoch 6/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.6860 - accuracy: 0.7650
+Epoch 7/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.5665 - accuracy: 0.8081
+Epoch 8/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.5192 - accuracy: 0.8323
+Epoch 9/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.4531 - accuracy: 0.8503
+Epoch 10/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.3931 - accuracy: 0.8719
+333/333 - 1s - loss: 0.2605 - accuracy: 0.9289 - 916ms/epoch - 3ms/step
+```
 
-#### What didn't work well ?
-
-#### What did I notice ?
+**Closer than ever !**

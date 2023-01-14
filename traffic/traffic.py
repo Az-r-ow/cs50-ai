@@ -84,28 +84,30 @@ def get_model():
     model = tf.keras.models.Sequential()
 
     # Convolution
-    model.add(tf.keras.layers.Conv2D(64, kernel_size=(3, 3), activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)))
+    model.add(tf.keras.layers.Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)))
 
     # Pooling
     model.add(tf.keras.layers.MaxPooling2D((2, 2)))
 
     # Convolution 2
-    model.add(tf.keras.layers.Conv2D(34, kernel_size=(3, 3), activation='relu'))
+    model.add(tf.keras.layers.Conv2D(64, kernel_size=(3, 3), activation='relu'))
 
     # Pooling 2
-    model.add(tf.keras.layers.MaxPooling2D((3, 3)))
+    model.add(tf.keras.layers.MaxPooling2D((2, 2)))
 
     # Flatten
     model.add(tf.keras.layers.Flatten())
 
+    # Hidden layer #1
     model.add(tf.keras.layers.Dense(128, activation="relu"))
     model.add(tf.keras.layers.Dropout(0.2))
 
-    # Add a hidden layer and dropout
+    # Hidden layer #2
     model.add(tf.keras.layers.Dense(64, activation="relu"))
     model.add(tf.keras.layers.Dropout(0.2))
 
-    model.add(tf.keras.layers.Dense(34, activation="relu"))
+    # Hidden layer #3
+    model.add(tf.keras.layers.Dense(32, activation="relu"))
     model.add(tf.keras.layers.Dropout(0.2))
 
     model.add(tf.keras.layers.Dense(16, activation="relu"))
