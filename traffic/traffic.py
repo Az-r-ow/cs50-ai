@@ -99,18 +99,20 @@ def get_model():
     model.add(tf.keras.layers.Flatten())
 
     # Hidden layer #1
-    model.add(tf.keras.layers.Dense(128, activation="relu"))
+    model.add(tf.keras.layers.Dense(256, activation="relu"))
     model.add(tf.keras.layers.Dropout(0.2))
 
     # Hidden layer #2
-    model.add(tf.keras.layers.Dense(64, activation="relu"))
+    model.add(tf.keras.layers.Dense(128, activation="relu"))
     model.add(tf.keras.layers.Dropout(0.2))
 
     # Hidden layer #3
-    model.add(tf.keras.layers.Dense(32, activation="relu"))
+    model.add(tf.keras.layers.Dense(64, activation="relu"))
     model.add(tf.keras.layers.Dropout(0.2))
 
-    model.add(tf.keras.layers.Dense(16, activation="relu"))
+    # Hidden layer #4
+    # Without a dropout
+    model.add(tf.keras.layers.Dense(32, activation="relu"))
 
     # Add an output layer with output units for all the categories
     model.add(tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax"))

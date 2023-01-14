@@ -101,3 +101,33 @@ Epoch 10/10
 ```
 
 **Closer than ever !**
+
+Since the results were promising, I thought the only thing left was to fiddle around with the number of neurons in the Dense layers.
+Knowing that the number of neurons in the first Dense layer should be the biggest and the closest to the size of the image after the Max Pooling. I went with a size of `256 (128 x 2)` and I for the rest I kept dividing them by 2. Stopping at a dense layer with `32` neurons and no Dropout because the number was already low and close to the number of Categories (42). So adding a dropout would increase our losses for nothing.
+
+And here were my **final** results :
+```
+Epoch 1/10
+500/500 [==============================] - 4s 7ms/step - loss: 2.7262 - accuracy: 0.3046
+Epoch 2/10
+500/500 [==============================] - 4s 7ms/step - loss: 1.0958 - accuracy: 0.6609
+Epoch 3/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.5993 - accuracy: 0.8130
+Epoch 4/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.3854 - accuracy: 0.8859
+Epoch 5/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.2905 - accuracy: 0.9174
+Epoch 6/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.2213 - accuracy: 0.9382
+Epoch 7/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.2144 - accuracy: 0.9459
+Epoch 8/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.1783 - accuracy: 0.9545
+Epoch 9/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.1649 - accuracy: 0.9581
+Epoch 10/10
+500/500 [==============================] - 4s 7ms/step - loss: 0.1415 - accuracy: 0.9619
+333/333 - 1s - loss: 0.1156 - accuracy: 0.9724 - 927ms/epoch - 3ms/step
+```
+
+🎉 **The perfomance was even better than the one demonstrated by the course admins !** 🎉
