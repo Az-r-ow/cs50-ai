@@ -131,3 +131,5 @@ Epoch 10/10
 ```
 
 🎉 **The perfomance was even better than the one demonstrated by the course admins !** 🎉
+
+### [🎥 Demo Recording](https://youtu.be/D5oMmtccnLQ)
