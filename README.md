@@ -108,3 +108,6 @@ In the last function to implement (`choose_action`) :
 ## Week 5 : Neural Networks
 ### Traffic : [:book:](https://cs50.harvard.edu/ai/2020/projects/5/traffic/)
 For this project, a README is required in which I should go over my experimentation process. ([📄](/traffic/README.md))
+
+## Week 6 : Langage
+### Parser : [:book:](https://cs50.harvard.edu/ai/2020/projects/6/parser/)
