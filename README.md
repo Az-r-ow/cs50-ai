@@ -111,3 +111,5 @@ For this project, a README is required in which I should go over my experimentat
 
 ## Week 6 : Langage
 ### Parser : [:book:](https://cs50.harvard.edu/ai/2020/projects/6/parser/)
+We are asked to determine the structure of a sentence using context-free grammar. We are supplied with a `TERMINAL` set of symbols and our main task will be to create `NONTERMINALS` that are general enough to generate the sentences provided in the `/sentences` folder. Keeping in my that we should avoid **over-generation** as well as **under-generation**. 
+The first task, is to implement a function that will accept a sentence as a string and we should return the words in that sentence to lowecase in a list. Which was pretty simple, all I had to do was in the help of the `nltk.tokenize.word_tokenize(sentence.lower())` split the sentence into tokens and then filter the tokens that weren't words.
