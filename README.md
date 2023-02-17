@@ -112,4 +112,9 @@ For this project, a README is required in which I should go over my experimentat
 ## Week 6 : Langage
 ### Parser : [:book:](https://cs50.harvard.edu/ai/2020/projects/6/parser/)
 We are asked to determine the structure of a sentence using context-free grammar. We are supplied with a `TERMINAL` set of symbols and our main task will be to create `NONTERMINALS` that are general enough to generate the sentences provided in the `/sentences` folder. Keeping in my that we should avoid **over-generation** as well as **under-generation**. 
-The first task, is to implement a function that will accept a sentence as a string and we should return the words in that sentence to lowecase in a list. Which was pretty simple, all I had to do was in the help of the `nltk.tokenize.word_tokenize(sentence.lower())` split the sentence into tokens and then filter the tokens that weren't words.
+
+The first task is to implement a function that will accept a sentence as a string and we should return the words in that sentence to lowecase in a list. Which was pretty simple, all I had to do was in the help of the `nltk.tokenize.word_tokenize(sentence.lower())` split the sentence into tokens and then filter the tokens that weren't words.
+
+We're asked in the second task to complete the `NONTERMINALS` so that when they're combined with the `TERMINALS` we can parse all the sentences in the set. To be able to complete the complex sets, it helped me to **draw** the **trees** on a piece of paper. By doing so, I was able to visualize the structures of the phrases and see patterns to add new phrases.
+
+Finally, we have to work on the `np_chunks` function that takes the tree as a parameter and should return a list of **all** noun phrases that don't contain other noun phrases within them. Nothing very complicated in this one, the only challenge was the structure of the tree.
