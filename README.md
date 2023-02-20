@@ -118,3 +118,18 @@ The first task is to implement a function that will accept a sentence as a strin
 We're asked in the second task to complete the `NONTERMINALS` so that when they're combined with the `TERMINALS` we can parse all the sentences in the set. To be able to complete the complex sets, it helped me to **draw** the **trees** on a piece of paper. By doing so, I was able to visualize the structures of the phrases and see patterns to add new phrases.
 
 Finally, we have to work on the `np_chunks` function that takes the tree as a parameter and should return a list of **all** noun phrases that don't contain other noun phrases within them. Nothing very complicated in this one, the only challenge was the structure of the tree.
+
+### Questions : [:book:](https://cs50.harvard.edu/ai/2020/projects/6/questions/)
+
+In this last and final project of this great CS50 AI course, we are asked to design an answering system like IBM's [Watson](https://en.wikipedia.org/wiki/IBM_Watson). We are given a bunch of documents from which our system will have to identify which ones are the most relevant to our query (question asked) and select the sentence(s) that answers the question the most.
+
+As a first task, we are asked to implement the `load_files` function. Nothing too fancy, we just have to make sure we don't hardcode the paths so our functions works on other os. In addition, we have to exclude files that don't have a `.txt` extension. 
+
+Then, we have to implement the `tokenize` function. Using the `nltk.tokenize.word_tokenize()` and passing it the lowercased document I will have a list of the **tokenized** document. However, we should filter out punctuations and stopwords. I do so by going over the **tokenized** document and removing the **tokens** that satisfy the condition. Next, I remove the duplicates from the list to avoid counting the word occurrences in the same list. Finally, after getting the occurrences of each word in all the documents I loop over the words to calculate their **idf** values. 
+
+`top_files` function should return the `n` top files that have the highest **tf-idf** score which will be calculated in the function. For that, I firstly loop over the words in the query storing the ones that are available in the `idfs` dictionary which will save us immense time later for computing the scores. Next I go over the files counting the frequencies of the words in each file and storing them in another dictionary. After getting the frequencies, I calculate the score of the file and store it a dictionary for comparison later. Finally, in the return statement I sort the files based on their score then cast the dict to a list of keys and extract in another list the first n files with the highest score.
+
+Same for the `top_sentences` it should return the `n` top sentences that have the highest matching word measure. However, instead of calculating the **term frequencies** we compute the **matching word measure** of each sentence. The **matching word measure** is computed by summing the **idf** value of each word present in the sentence. To do so I take a very similar approach to what I did in the `top_files` function. But, one step was added before return the list of `top_sentences` which is verifying if two sentences have the same value and if they do checking their terms density and then permuting their positions on the list if necessary.
+
+> My implementation works on most cases, except for the *"how do neurons connect in a neural network?"* where I get the answer : *"They can be pooling, where a group of neurons in one layer connect to a single neuron in the next layer, thereby reducing the number of neurons in that layer."*. Which makes sense because of how we calculate the **matching word measure**. 
+
