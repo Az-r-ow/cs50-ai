@@ -68,21 +68,20 @@ def transition_model(corpus, page, damping_factor):
         equal_probability = 1 / len(corpus)
         for p in corpus:
             pages_probabilities[p] = equal_probability
-        return pages_probabilies
+        return pages_probabilities
 
     # Page has outgoing links
     # Get the probability for each page
     probability = damping_factor / len(corpus[page])
 
-    # Get the probability of chosing randomly among all pages
+    # Get the probability of choosing randomly among all pages
     remainder = (1 - damping_factor) / len(corpus)
 
-    # Assigning the probabilites
+    # Assigning the probabilities
     for p in corpus :
         pages_probabilities[p] = remainder + probability if p in corpus[page] else remainder
-
+    
     return pages_probabilities
-
 
 
 def sample_pagerank(corpus, damping_factor, n):
@@ -94,25 +93,27 @@ def sample_pagerank(corpus, damping_factor, n):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
-    page_picked = random.choice(list(corpus.keys()))
     results = {}
 
     # Initializing the current results to 0
     for page in corpus :
         results[page] = 0
+        
+    # first randomly choose a page
+    page = random.choice(list(corpus.keys()))
+    results[page] = 1 
 
-    # Starting with the simulation
     for g in range(1, n):
-        current_results = transition_model(corpus, page_picked, damping_factor)
-        for page in corpus :
-            # Getting the current results based on the previous results
-            results[page] = ((g - 1) * results[page] + current_results[page]) / g
-
-        # Picking a page based on the transition model results acting as weights for the random value
-        page_picked = random.choices(list(results.keys()), weights=list(results.values()), k=1)[0]
-
-    return results
-
+        p_dist = transition_model(corpus, page, damping_factor)
+        # based on the old distribution get a new page
+        page = random.choices(list(p_dist.keys()), list(p_dist.values()), k=1)[0]
+        results[page] += 1
+        
+    # Normalize the results
+    for page in results:
+        results[page] /= n
+    
+    return results 
 
 
 def iterate_pagerank(corpus, damping_factor):
@@ -148,7 +149,7 @@ def iterate_pagerank(corpus, damping_factor):
                     sigma = sigma + page_ranks[i] / num_links
             sigma = damping_factor * sigma
             page_rank += sigma
-            if abs(page_rank - page_ranks[page]) < 0.0001:
+            if abs(page_rank - page_ranks[page]) < 0.00001:
                 count += 1
             # If the difference is less than the threshold
             # Assign the new page_rank
@@ -156,6 +157,7 @@ def iterate_pagerank(corpus, damping_factor):
             if count == N:
                 run = False
                 break
+
     return page_ranks
 
 if __name__ == "__main__":
